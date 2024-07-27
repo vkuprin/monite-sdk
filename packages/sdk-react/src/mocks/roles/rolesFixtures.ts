@@ -50,18 +50,20 @@ export const fullPermissionRole: RoleResponse = {
           },
         ],
       },
-      ...[
-        'approval_policy',
-        'approval_request',
-        'role',
-        'counterpart',
-        'product',
-        'receivable',
-        'tag',
-        'workflow',
-      ].map((object_type): CommonSchema => {
+      ...(
+        [
+          'approval_policy',
+          'approval_request',
+          'role',
+          'counterpart',
+          'product',
+          'receivable',
+          'tag',
+          'workflow',
+        ] as const
+      ).map((object_type): CommonSchema => {
         return {
-          object_type: object_type as unknown as CommonSchema['object_type'], // TODO: remove after fix https://monite.atlassian.net/browse/DEV-6294
+          object_type,
           actions: [
             {
               action_name: 'read',
@@ -152,16 +154,18 @@ export const lowPermissionRole: RoleResponse = {
           },
         ],
       },
-      ...[
-        'counterpart',
-        'product',
-        'receivable',
-        'tag',
-        'workflow',
-        'role',
-      ].map((object_type): CommonSchema => {
+      ...(
+        [
+          'counterpart',
+          'product',
+          'receivable',
+          'tag',
+          'workflow',
+          'role',
+        ] as const
+      ).map((object_type): CommonSchema => {
         return {
-          object_type: object_type as unknown as CommonSchema['object_type'], // TODO: remove after fix https://monite.atlassian.net/browse/DEV-6294
+          object_type,
           actions: [
             {
               action_name: 'read',
@@ -203,18 +207,20 @@ export const readOnlyRole: RoleResponse = {
           },
         ],
       },
-      ...[
-        'approval_policy',
-        'approval_request',
-        'role',
-        'counterpart',
-        'product',
-        'receivable',
-        'tag',
-        'workflow',
-      ].map((object_type): CommonSchema => {
+      ...(
+        [
+          'approval_policy',
+          'approval_request',
+          'role',
+          'counterpart',
+          'product',
+          'receivable',
+          'tag',
+          'workflow',
+        ] as const
+      ).map((object_type): CommonSchema => {
         return {
-          object_type: object_type as unknown as CommonSchema['object_type'], // TODO: remove after fix https://monite.atlassian.net/browse/DEV-6294
+          object_type,
           actions: [
             {
               action_name: 'read',
@@ -272,17 +278,19 @@ export const allowedForOwnRole: RoleResponse = {
           },
         ],
       },
-      ...[
-        'approval_policy',
-        'role',
-        'counterpart',
-        'product',
-        'receivable',
-        'tag',
-        'workflow',
-      ].map((object_type): CommonSchema => {
+      ...(
+        [
+          'approval_policy',
+          'role',
+          'counterpart',
+          'product',
+          'receivable',
+          'tag',
+          'workflow',
+        ] as const
+      ).map((object_type): CommonSchema => {
         return {
-          object_type: object_type as unknown as CommonSchema['object_type'], // TODO: remove after fix https://monite.atlassian.net/browse/DEV-6294
+          object_type,
           actions: [
             {
               action_name: 'read',
@@ -319,17 +327,19 @@ export const emptyPermissionRole: RoleResponse = {
         object_type: 'payable',
         actions: [],
       },
-      ...[
-        'approval_policy',
-        'role',
-        'counterpart',
-        'product',
-        'receivable',
-        'tag',
-        'workflow',
-      ].map((object_type): CommonSchema => {
+      ...(
+        [
+          'approval_policy',
+          'role',
+          'counterpart',
+          'product',
+          'receivable',
+          'tag',
+          'workflow',
+        ] as const
+      ).map((object_type): CommonSchema => {
         return {
-          object_type: object_type as unknown as CommonSchema['object_type'], // TODO: remove after fix https://monite.atlassian.net/browse/DEV-6294
+          object_type,
           actions: [],
         };
       }),
